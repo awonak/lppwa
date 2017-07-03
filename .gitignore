@@ -1,0 +1,10 @@
+.DS_Store
+#packages
+.packages
+.project
+.idea
+node_modules
+build
+.pub
+
+.vscode 

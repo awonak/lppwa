@@ -1,0 +1,13 @@
+
+<h2>Your Cart</h2>
+
+<ul class="cart">
+  <li *ngFor="let item of cart">
+    <span >{{item.name}}</span>
+    <span >{{item.price}}</span>
+  </li>
+</ul>
+
+<div>Total: ${{ cart_total | number:"0.2" }}</div>
+
+<button (click)="checkout()">Check Out</button>

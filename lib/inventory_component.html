@@ -1,0 +1,10 @@
+
+<h2>{{name}} List</h2>
+
+<ul class="items">
+  <li *ngFor="let item of items">
+    <button class="add" (click)="addToCart(item)">+add</button>
+    <span class="badge">{{item.name}}</span>
+    <span class="price">{{item.price}}</span>
+  </li>
+</ul>
