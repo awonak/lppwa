@@ -45,7 +45,12 @@ class InventoryComponent implements OnInit {
         ];
         break;
       case 'spirits':
-        throw new Exception('Not yet implemnted');
+        name = 'Spirits';        
+        items = [
+          new Item('QFR3W9BRX0VG4', 'Leopold Brothers Absinthe 375m', 630279688069, 43.99, 3),
+          new Item('SNSBF3728BGCA', 'Bulleit Bourbon10yr', 820103909853, 53.99, 5),
+          new Item('112QMJYDF9D5J', 'Noah\'s Mill Bourbon', 705105536453, 59.99, 0),
+        ];
         break;
       default:
         throw new ArgumentError('Not a valid category');
@@ -56,4 +61,5 @@ class InventoryComponent implements OnInit {
     print('add to cart...');
     _cartService.addToCart(item);
   }
+
 }

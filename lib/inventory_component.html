@@ -1,10 +1,16 @@
-
-<h2>{{name}} List</h2>
-
-<ul class="items">
-  <li *ngFor="let item of items">
-    <button class="add" (click)="addToCart(item)">+add</button>
-    <span class="badge">{{item.name}}</span>
-    <span class="price">{{item.price}}</span>
-  </li>
+<h3>{{name}} List</h3>
+<ul class="demo-list-two mdl-list">
+  <div group>
+    <li class="mdl-list__item mdl-list__item--two-line" *ngFor="let item of items">
+      <span class="mdl-list__item-primary-content">
+        <span>{{item.name}}</span>
+        <span class="mdl-list__item-sub-title">Price ${{item.price}}</span>
+      </span>
+      <span class="mdl-list__item-secondary-content">
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" (click)="addToCart(item)">
+          <i class="material-icons">add_shopping_cart</i>
+        </button>
+      </span>
+    </li>
+  </div>
 </ul>

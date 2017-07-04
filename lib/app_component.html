@@ -1,0 +1,37 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">{{title}}</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link mdl-layout--large-screen-only" [routerLink]="['Home']">Home</a>
+        <a class="mdl-navigation__link mdl-layout--large-screen-only" [routerLink]="['Inventory', {'type': 'beer'}]">Beer</a>
+        <a class="mdl-navigation__link mdl-layout--large-screen-only" [routerLink]="['Inventory', {'type': 'wine'}]">Wine</a>
+        <a class="mdl-navigation__link mdl-layout--large-screen-only" [routerLink]="['Inventory', {'type': 'spirits'}]">Spirits</a>
+        <a class="mdl-navigation__link" [routerLink]="['Cart']">
+          <i class="material-icons mdl-badge mdl-badge--overlap" *ngIf="getCartSize() == 0">shopping_cart</i>
+          <i class="material-icons mdl-badge mdl-badge--overlap" *ngIf="getCartSize() > 0" [attr.data-badge]="getCartSize()">shopping_cart</i>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">{{title}}</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" [routerLink]="['Home']">Home</a>
+      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'beer'}]">Beer</a>
+      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'wine'}]">Wine</a>
+      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'spirits'}]">Spirits</a>
+      <a class="mdl-navigation__link" [routerLink]="['Cart']">Cart</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
