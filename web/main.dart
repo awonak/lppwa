@@ -3,12 +3,12 @@
 
 import 'package:angular2/platform/browser.dart';
 import 'package:angular_app/app_component.dart';
-import 'package:pwa/client.dart' as pwa;
+// import 'package:pwa/client.dart' as pwa;
 
 
 void main() {
   // register PWA ServiceWorker for offline caching.
-  new pwa.Client();
+  // new pwa.Client();
   
   bootstrap(AppComponent);
 }

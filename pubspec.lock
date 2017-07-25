@@ -18,7 +18,7 @@ packages:
       name: angular_components
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.2"
+    version: "0.5.3+1"
   angular_test:
     description:
       name: angular_test
@@ -108,7 +108,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.1"
+    version: "1.14.3"
   convert:
     description:
       name: convert
@@ -120,7 +120,7 @@ packages:
       name: crypto
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   csslib:
     description:
       name: csslib
@@ -144,7 +144,7 @@ packages:
       name: fixnum
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.5"
+    version: "0.10.6"
   func:
     description:
       name: func
@@ -168,7 +168,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.3+13"
+    version: "0.11.3+14"
   http_multi_server:
     description:
       name: http_multi_server
@@ -216,13 +216,19 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.5"
+    version: "1.1.1"
   mime:
     description:
       name: mime
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.3"
+  node_preamble:
+    description:
+      name: node_preamble
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.0"
   observable:
     description:
       name: observable
@@ -234,7 +240,7 @@ packages:
       name: package_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   package_resolver:
     description:
       name: package_resolver
@@ -264,7 +270,7 @@ packages:
       name: plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.0+1"
   pool:
     description:
       name: pool
@@ -318,7 +324,7 @@ packages:
       name: shelf_static
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.4"
+    version: "0.2.5"
   shelf_web_socket:
     description:
       name: shelf_web_socket
@@ -354,13 +360,19 @@ packages:
       name: stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.4"
+    version: "1.8.0"
   stream_channel:
     description:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.1"
+  stream_transform:
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.7"
   string_scanner:
     description:
       name: string_scanner
@@ -378,7 +390,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.23+1"
+    version: "0.12.24"
   typed_data:
     description:
       name: typed_data
@@ -440,4 +452,4 @@ packages:
     source: hosted
     version: "2.1.12"
 sdks:
-  dart: ">=1.24.0 <2.0.0"
+  dart: ">=1.24.0 <2.0.0-dev.infinity"
