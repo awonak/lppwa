@@ -8,3 +8,6 @@ build
 .pub
 
 .vscode 
+
+server/.env
+server/server

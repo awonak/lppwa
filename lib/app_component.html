@@ -22,11 +22,13 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">{{title}}</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" [routerLink]="['Home']">Home</a>
-      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'beer'}]">Beer</a>
-      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'wine'}]">Wine</a>
-      <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'spirits'}]">Spirits</a>
-      <a class="mdl-navigation__link" [routerLink]="['Cart']">Cart</a>
+      <div group>
+        <a class="mdl-navigation__link" [routerLink]="['Home']">Home</a>
+        <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'beer'}]">Beer</a>
+        <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'wine'}]">Wine</a>
+        <a class="mdl-navigation__link" [routerLink]="['Inventory', {'type': 'spirits'}]">Spirits</a>
+        <a class="mdl-navigation__link" [routerLink]="['Cart']">Cart</a>
+      </div>
     </nav>
   </div>
   <main class="mdl-layout__content">
