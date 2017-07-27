@@ -31,3 +31,11 @@ func EnvConfig() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+func CorsMiddleware() gin.HandlerFunc {
+  // Set out header value for each response
+  return func(c *gin.Context) {
+    c.Writer.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080")
+    c.Next()
+  }
+}

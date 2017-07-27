@@ -8,6 +8,7 @@ func main() {
 
 	r := gin.Default()
 	r.Use(EnvConfig())
+	r.Use(CorsMiddleware())
 
 	v1 := r.Group("/api/v1")
 	{
