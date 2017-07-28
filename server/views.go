@@ -39,36 +39,34 @@ func cloverRequest(endpoint string) CloverResponse {
 	return jsonResp
 }
 
-func getInventoryCategory(c *gin.Context) {
+func CategoryInventory(c *gin.Context) {
 	// parse URL param
 	category := c.Param("category")
 
 	// get config variables from context
-	baseURL := c.MustGet("baseURL").(string)
-	merchantID := c.MustGet("merchantID").(string)
-	accessToken := c.MustGet("accessToken").(string)
+	config := c.MustGet("config").(Config)
 
 	// construct api request url
 	itemsURL := "%s/merchants/%s/categories/%s/items?access_token=%s"
-	requestURL := fmt.Sprintf(itemsURL, baseURL, merchantID, category, accessToken)
+	requestURL := fmt.Sprintf(itemsURL, config.BaseURL, config.MerchantID,
+	                          category, config.AccessToken)
 	jsonResp := cloverRequest(requestURL)
 
 	// return response
 	c.JSON(http.StatusOK, jsonResp)
 }
 
-func getInventorySearch(c *gin.Context) {
+func SearchInventory(c *gin.Context) {
 	// parse GET param
 	query := url.QueryEscape(c.Query("q"))
 
 	// get config variables from context
-	baseURL := c.MustGet("baseURL").(string)
-	merchantID := c.MustGet("merchantID").(string)
-	accessToken := c.MustGet("accessToken").(string)
+	config := c.MustGet("config").(Config)
 
 	// construct api request url
 	searchURL := "%s/merchants/%s/items?filter=name+LIKE%%25%s%%25&access_token=%s"
-	requestURL := fmt.Sprintf(searchURL, baseURL, merchantID, query, accessToken)
+	requestURL := fmt.Sprintf(searchURL, config.BaseURL, config.MerchantID,
+	                          query, config.AccessToken)
 	jsonResp := cloverRequest(requestURL)
 
 	// return response

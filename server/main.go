@@ -12,8 +12,8 @@ func main() {
 
 	v1 := r.Group("/api/v1")
 	{
-		v1.GET("/inventory/search", getInventorySearch)
-		v1.GET("/inventory/category/:category", getInventoryCategory)
+		v1.GET("/inventory/search", SearchInventory)
+		v1.GET("/inventory/category/:category", CategoryInventory)
 	}
 	r.Run(":9000") // listen and serve on 0.0.0.0:9000
 }
