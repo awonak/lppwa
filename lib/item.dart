@@ -2,14 +2,14 @@
 class Item {
   final String id;
   String name;
-  int code;
-  double price;
+  String code;
+  int price;
   int stockCount;
 
   Item(this.id, this.name, this.code, this.price, this.stockCount);
-  
 
-  factory Item.fromJson(Map<String, dynamic> item) => 
+
+  factory Item.fromJson(Map<String, dynamic> item) =>
     new Item(item['id'], item['name'], item['code'], item['price'], item['stockCount']);
 }
 
