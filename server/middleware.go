@@ -7,26 +7,26 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
-// Specification configuration struct
-type Specification struct {
+// configuration specification  struct
+type Config struct {
 	AccessToken string
 	MerchantID  string
 	BaseURL     string
+	AllowOrigin string
 }
 
 // EnvConfig middleware for configuration variables
 func EnvConfig() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		var s Specification
-		err := envconfig.Process("lppwa", &s)
+		var config Config
+		err := envconfig.Process("LPPWA", &config)
 		if err != nil {
 			log.Fatal(err.Error())
 		}
 
-		c.Set("baseURL", s.BaseURL)
-		c.Set("merchantID", s.MerchantID)
-		c.Set("accessToken", s.AccessToken)
+		// Add config var to context
+		c.Set("config", config)
 
 		c.Next()
 	}
@@ -35,7 +35,11 @@ func EnvConfig() gin.HandlerFunc {
 func CorsMiddleware() gin.HandlerFunc {
   // Set out header value for each response
   return func(c *gin.Context) {
-    c.Writer.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080")
+		// get config variables from context
+		config := c.MustGet("config").(Config)
+
+		// Declare allowed origin
+    c.Writer.Header().Set("Access-Control-Allow-Origin", config.AllowOrigin)
     c.Next()
   }
 }
