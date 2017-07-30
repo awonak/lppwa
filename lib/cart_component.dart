@@ -19,10 +19,10 @@ class CartComponent implements OnInit {
     cart = _cartService.getCart();
   }
 
-  double getCartTotal() {
+  String getCartTotal() {
     double cart_total = 0.0;
     cart.forEach((e) => cart_total += e.price);
-    return cart_total;
+    return "\$${cart_total.toStringAsFixed(2)}";
   }
 
   void removeFromCart(Item item) {

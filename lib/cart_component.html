@@ -5,7 +5,7 @@
     <li class="mdl-list__item mdl-list__item--two-line" *ngFor="let item of cart">
       <span class="mdl-list__item-primary-content">
         <span>{{item.name}}</span>
-        <span class="mdl-list__item-sub-title">Price ${{item.price}}</span>
+        <span class="mdl-list__item-sub-title">Price {{ item.displayPrice }}</span>
       </span>
       <span class="mdl-list__item-secondary-content">
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"  (click)="removeFromCart(item)">
@@ -18,7 +18,7 @@
     <div label>Cart Total</div>
     <li class="mdl-list__item ">
       <span class="mdl-list__item-primary-content">
-        Total: <span>${{ getCartTotal() | number:"0.2" }}</span>
+        Total: <span>{{ getCartTotal() }}</span>
       </span>
     </li>
     <li class="mdl-list__item">

@@ -1,5 +1,15 @@
 package main
 
+const BEER = "beer"
+const WINE = "wine"
+const SPIRITS = "spirits"
+
+var CategoryMap = map[string]string{
+	BEER:    "6M2MA7RSTK48G",
+	WINE:    "ENZ9NW2HMH6X4",
+	SPIRITS: "T44GTM66YP2Y6",
+}
+
 // Item is a Clover inventory item
 type Item struct {
 	ID              string `json:"id"`

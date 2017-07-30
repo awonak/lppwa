@@ -39,9 +39,10 @@ func cloverRequest(endpoint string) CloverResponse {
 	return jsonResp
 }
 
+// CategoryInventory view fetches items for given category
 func CategoryInventory(c *gin.Context) {
 	// parse URL param
-	category := c.Param("category")
+	categoryID := CategoryMap[c.Param("category")]
 
 	// get config variables from context
 	config := c.MustGet("config").(Config)
@@ -49,13 +50,14 @@ func CategoryInventory(c *gin.Context) {
 	// construct api request url
 	itemsURL := "%s/merchants/%s/categories/%s/items?access_token=%s"
 	requestURL := fmt.Sprintf(itemsURL, config.BaseURL, config.MerchantID,
-	                          category, config.AccessToken)
+		categoryID, config.AccessToken)
 	jsonResp := cloverRequest(requestURL)
 
 	// return response
 	c.JSON(http.StatusOK, jsonResp)
 }
 
+// SearchInventory performs a string search of item name for provided query
 func SearchInventory(c *gin.Context) {
 	// parse GET param
 	query := url.QueryEscape(c.Query("q"))
@@ -66,7 +68,7 @@ func SearchInventory(c *gin.Context) {
 	// construct api request url
 	searchURL := "%s/merchants/%s/items?filter=name+LIKE%%25%s%%25&access_token=%s"
 	requestURL := fmt.Sprintf(searchURL, config.BaseURL, config.MerchantID,
-	                          query, config.AccessToken)
+		query, config.AccessToken)
 	jsonResp := cloverRequest(requestURL)
 
 	// return response

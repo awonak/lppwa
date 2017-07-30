@@ -41,7 +41,6 @@ class InventoryComponent implements OnInit {
   }
 
   void addToCart(Item item) {
-    print('add to cart...');
     _cartService.addToCart(item);
   }
 

@@ -11,12 +11,7 @@ const String BEER = 'beer';
 const String WINE = 'wine';
 const String SPIRITS = 'spirits';
 
-final Map<String, String> categories = {
-  BEER: '6M2MA7RSTK48G',
-  WINE: 'ENZ9NW2HMH6X4',
-  SPIRITS: 'T44GTM66YP2Y6'
-};
-
+// TODO(awonak): make this configurable
 const String BASE_URL = 'http://localhost:9000/api/v1';
 
 @Injectable()
@@ -26,8 +21,7 @@ class InventoryService {
 
   // Get items for given type
   Future<List<Item>> getItems(String type) async {
-    var category_id = getCategory(type);
-    var _itemsUrl = '/inventory/category/$category_id';
+    var _itemsUrl = '/inventory/category/$type';
 
     try {
       print(_itemsUrl);
@@ -40,8 +34,6 @@ class InventoryService {
       throw _handleError(e);
     }
   }
-
-  String getCategory(String type) => categories[type];
 
   dynamic _extractData(Response resp) => JSON.decode(resp.body)['elements'];
 

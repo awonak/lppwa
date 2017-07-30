@@ -4,14 +4,7 @@
 <head>
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#43644F" />
-  <script>
-    // WARNING: DO NOT set the <base href> like this in production!
-    // Details: https://webdev.dartlang.org/angular/guide/router
-    (function () {
-      var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
-      document.write('<base href="' + (m ? m[0] : '/') + '" />');
-    }());
-  </script>
+    <base href="/">
 
   <title>Hello Angular</title>
   <meta charset="utf-8">
