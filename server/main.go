@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -29,5 +31,12 @@ func main() {
 		apiV1.GET("/inventory/search", SearchInventory)
 		apiV1.GET("/inventory/category/:category", CategoryInventory)
 	}
+
+	// Everything else redirect to index.html
+	r.LoadHTMLFiles("index.html")
+	r.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", gin.H{})
+	})
+
 	r.Run(":9000") // listen and serve on 0.0.0.0:9000
 }
