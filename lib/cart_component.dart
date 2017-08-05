@@ -26,7 +26,6 @@ class CartComponent implements OnInit {
   }
 
   void removeFromCart(Item item) {
-    print('remove from cart...');
     _cartService.removeFromCart(item);
   }
 

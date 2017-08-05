@@ -1,5 +1,6 @@
 .page-content {
   margin: 20px;
+  overflow: scroll;
 }
 
 .mdl-card__media {
@@ -15,4 +16,7 @@
 }
 .demo-list-two {
   width: 300px;
+}
+.full-width {
+  width: 100%;
 }

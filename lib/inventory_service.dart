@@ -19,14 +19,36 @@ class InventoryService {
   final BrowserClient _http;
   InventoryService(this._http);
 
+  // Search for given phrase
+  Future<List<Item>> searchItems(String query) async {
+    List<Item> items;
+    Response response;
+
+    String url = BASE_URL + '/inventory/search?q=$query';
+    String uri = Uri.encodeFull(url);
+    try {
+      print(uri);
+      response = await _http.get(uri);
+      items = _extractData(response)
+          .map((value) => new Item.fromJson(value))
+          .toList();
+      return items;
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+
   // Get items for given type
   Future<List<Item>> getItems(String type) async {
-    var _itemsUrl = '/inventory/category/$type';
+    List<Item> items;
+    Response response;
+
+    String _itemsUrl = BASE_URL + '/inventory/category/$type';
 
     try {
       print(_itemsUrl);
-      final response = await _http.get(BASE_URL+_itemsUrl);
-      final items = _extractData(response)
+      response = await _http.get(_itemsUrl);
+      items = _extractData(response)
           .map((value) => new Item.fromJson(value))
           .toList();
       return items;

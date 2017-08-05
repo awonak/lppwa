@@ -1,0 +1,7 @@
+<h3>Search</h3>
+<input #query label="Name, brewery, vineyard, distillery..." class="mdl-textfield__input"
+    (keyup.enter)="search(query.value)"
+    (blur)="search(query.value)">
+<span *ngIf="results?.isNotEmpty">
+    <item-display (addRequest)="addToCart($event)" [items]="results"></item-display>
+</span>

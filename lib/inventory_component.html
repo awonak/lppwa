@@ -1,16 +1,3 @@
 <h3>{{type | uppercase}} List</h3>
-<ul class="demo-list-two mdl-list">
-  <div group>
-    <li class="mdl-list__item mdl-list__item--two-line" *ngFor="let item of items">
-      <span class="mdl-list__item-primary-content">
-        <span>{{item.name}}</span>
-        <span class="mdl-list__item-sub-title">Price {{item.displayPrice}}</span>
-      </span>
-      <span class="mdl-list__item-secondary-content">
-        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" (click)="addToCart(item)">
-          <i class="material-icons">add_shopping_cart</i>
-        </button>
-      </span>
-    </li>
-  </div>
-</ul>
+<item-display (addRequest)="addToCart($event)" [items]="items"></item-display>
+<p *ngIf="errorMsg?.isNotEmpty">{{errorMsg}}</p>

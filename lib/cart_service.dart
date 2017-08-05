@@ -17,7 +17,6 @@ class CartService {
   }
 
   List<Item> getCart() {
-    print('get cart: $cart');
     return cart;
   }
 

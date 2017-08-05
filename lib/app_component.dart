@@ -8,6 +8,7 @@ import 'cart_component.dart';
 import 'cart_service.dart';
 import 'home_component.dart';
 import 'inventory_component.dart';
+import 'search_component.dart';
 
 @Component(
   selector: 'my-app',
@@ -18,15 +19,13 @@ import 'inventory_component.dart';
 @RouteConfig(const [
   const Route(path: '/', name: 'Home', component: HomeComponent, useAsDefault: true),
   const Route(path: '/inventory/:type', name: 'Inventory', component: InventoryComponent),
+  const Route(path: '/search', name: 'Search', component: SearchComponent),
   const Route(path: '/cart', name: 'Cart', component: CartComponent),
 ])
 class AppComponent {
-  var title = "Liquor Park";
-
   final CartService _cartService;
 
   AppComponent(this._cartService);
 
   getCartSize() => _cartService.getCartSize();
-
 }

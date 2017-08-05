@@ -1,0 +1,21 @@
+<table class="mdl-data-table mdl-js-data-table full-width">
+    <thead>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">Name</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
+            <td>{{item.displayPrice}}</td>
+            <td>
+                <button class="add-to-cart mdl-list__item-secondary-action mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" 
+                    (click)="addToCart(item)">
+                    <i class="material-icons">add_shopping_cart</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
