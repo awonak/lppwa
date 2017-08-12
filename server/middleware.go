@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"log"
@@ -7,7 +7,7 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
-// configuration specification  struct
+// Config configuration specification  struct
 type Config struct {
 	AccessToken string
 	MerchantID  string
@@ -30,16 +30,4 @@ func EnvConfig() gin.HandlerFunc {
 
 		c.Next()
 	}
-}
-
-func CorsMiddleware() gin.HandlerFunc {
-  // Set out header value for each response
-  return func(c *gin.Context) {
-		// get config variables from context
-		config := c.MustGet("config").(Config)
-
-		// Declare allowed origin
-    c.Writer.Header().Set("Access-Control-Allow-Origin", config.AllowOrigin)
-    c.Next()
-  }
 }

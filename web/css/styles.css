@@ -1,6 +1,6 @@
 .page-content {
   margin: 20px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .mdl-card__media {

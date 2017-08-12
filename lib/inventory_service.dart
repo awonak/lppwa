@@ -11,8 +11,7 @@ const String BEER = 'beer';
 const String WINE = 'wine';
 const String SPIRITS = 'spirits';
 
-// TODO(awonak): make this configurable
-const String BASE_URL = 'http://localhost:9000/api/v1';
+const String BASE_URL = '/api/v1';
 
 @Injectable()
 class InventoryService {

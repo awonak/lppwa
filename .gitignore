@@ -9,5 +9,5 @@ build
 
 .vscode 
 
-server/.env
-server/server
+.env
+lppwa

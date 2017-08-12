@@ -14,7 +14,6 @@ Here is a sample `.env` file:
 
 ```
 export LPPWA_ACCESSTOKEN=aaaa-bb-cc-dddd
-export LPPWA_ALLOWORIGIN=http://localhost:8080
 export LPPWA_BASEURL=https://api.example.com/v2
 export LPPWA_MERCHANTID=0123456709ABCDEF
 ```

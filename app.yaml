@@ -1,0 +1,9 @@
+runtime: go
+env: flex
+health_check:
+  enable_health_check: False
+env_variables:
+  GIN_MODE: 'release'
+  LPPWA_ACCESSTOKEN: 'f026f754-05d5-9041-dc87-701293720cda'
+  LPPWA_BASEURL: 'https://api.clover.com/v3'
+  LPPWA_MERCHANTID: '25S8FVC8MY9D0'

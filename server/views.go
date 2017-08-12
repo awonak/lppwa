@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"encoding/json"
@@ -16,6 +16,17 @@ import (
 type CloverResponse struct {
 	Elements []Item `json:"elements"`
 	Href     string `json:"href"`
+}
+
+// Filter items based on callbackk
+func Filter(vs []Item, f func(Item) bool) []Item {
+	vsf := make([]Item, 0)
+	for _, v := range vs {
+		if f(v) {
+			vsf = append(vsf, v)
+		}
+	}
+	return vsf
 }
 
 func cloverRequest(endpoint string) CloverResponse {
@@ -48,13 +59,20 @@ func CategoryInventory(c *gin.Context) {
 	config := c.MustGet("config").(Config)
 
 	// construct api request url
-	itemsURL := "%s/merchants/%s/categories/%s/items?access_token=%s"
+	itemsURL := "%s/merchants/%s/categories/%s/items?access_token=%s&expand=itemStock&limit=1000"
 	requestURL := fmt.Sprintf(itemsURL, config.BaseURL, config.MerchantID,
 		categoryID, config.AccessToken)
 	jsonResp := cloverRequest(requestURL)
 
+	resp := CloverResponse{
+		Elements: Filter(jsonResp.Elements, func(i Item) bool {
+			return i.ItemStock.StockCount > 0
+		}),
+		Href: jsonResp.Href,
+	}
+
 	// return response
-	c.JSON(http.StatusOK, jsonResp)
+	c.JSON(http.StatusOK, resp)
 }
 
 // SearchInventory performs a string search of item name for provided query
